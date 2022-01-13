@@ -7,26 +7,14 @@ import cv2
 
 # fonction de traitement d'une frame
 def frame_processing(imgc):
-
     # application de la détection de contours par l'algorithme de canny
     edges = cv2.Canny(imgc, 100, 200)
 
-    """
-    edges = cv2.Laplacian(imgc, cv2.CV_64F)
-    """
+    laplace = cv2.Laplacian(imgc, cv2.CV_64F)
 
-    """
     sobel = cv2.Sobel(imgc, cv2.CV_64F, 0, 1, ksize=5)
-    """
 
-    return imgc
-
-
-def frame_processing_q3(imgc, img_prev):
-
-    imgc = cv2.subtract(imgc, img_prev)
-
-    return imgc
+    return edges
 
 
 # important du fichier video a traiter
@@ -52,9 +40,7 @@ while (True):
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
         # application de la fonction de traitement frame_processing() a gray
-        # gray = frame_processing(gray)
-        gray = frame_processing_q3(gray, img_previous)
-
+        gray = frame_processing(gray)
 
         # affichage de la frame avant et apres traitement
         cv2.imshow('MavideoAvant', frame)
