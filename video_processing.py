@@ -4,12 +4,14 @@
 import numpy as np
 import cv2
 
+
 # fonction de traitement d'une frame
 def frame_processing(imgc):
-     return imgc
+    return imgc
+
 
 # important du fichier video a traiter
-cap = cv2.VideoCapture('data/jurassicworld.mp4')
+cap = cv2.VideoCapture('Images2020/jurassicworld.mp4')
 
 # le programme boucle tant que la video n'est pas finie (ou bien touche 'q' pressee)
 while (True):
