@@ -56,3 +56,10 @@ img_suzan = cv2.cvtColor(img_suzan, cv2.COLOR_BGR2GRAY)
 sobely_suzan = cv2.Sobel(img_suzan, cv2.CV_64F, 0, 1, ksize=5)
 cv2.imshow("filtre sobel horizontal (5)", sobely_suzan)
 """
+
+# waits for user to press any key
+# (this is necessary to avoid Python kernel form crashing)
+cv2.waitKey(0)
+
+# closing all open windows
+cv2.destroyAllWindows()
