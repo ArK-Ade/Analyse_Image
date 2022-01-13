@@ -7,7 +7,6 @@ import cv2
 
 # fonction de traitement d'une frame
 def frame_processing(imgc):
-
     # application de la détection de contours par l'algorithme de canny
     edges = cv2.Canny(imgc, 100, 200)
 
@@ -23,7 +22,6 @@ def frame_processing(imgc):
 
 
 def frame_processing_q3(imgc, img_prev):
-
     imgc = cv2.subtract(imgc, img_prev)
 
     return imgc
@@ -54,7 +52,6 @@ while (True):
         # application de la fonction de traitement frame_processing() a gray
         # gray = frame_processing(gray)
         gray = frame_processing_q3(gray, img_previous)
-
 
         # affichage de la frame avant et apres traitement
         cv2.imshow('MavideoAvant', frame)
