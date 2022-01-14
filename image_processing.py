@@ -21,6 +21,7 @@ print(rep_cour)
 img = cv2.imread('Images2020/lena.jpg')
 img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
+"""
 # seuillage binaire
 ret_binaire, img_binaire = cv2.threshold(img, 80, 90, cv2.THRESH_BINARY)
 
@@ -28,9 +29,11 @@ ret_binaire, img_binaire = cv2.threshold(img, 80, 90, cv2.THRESH_BINARY)
 # img_adaptive_thresholding = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 3, 2)
 img_adaptive_thresholding = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 11, 2)
 
-cv2.imshow("seuillage binaire THRESH_BINARY", img_adaptive_thresholding)
 
+cv2.imshow("seuillage binaire", img_binaire)
+cv2.imshow("seuillage binaire adaptative", img_adaptive_thresholding)
 """
+
 jeu1 = cv2.imread('Images2020/jeu1.jpg')
 jeu1 = cv2.cvtColor(jeu1, cv2.COLOR_BGR2GRAY)
 
@@ -40,13 +43,21 @@ jeu2 = cv2.cvtColor(jeu2, cv2.COLOR_BGR2GRAY)
 jeu3 = cv2.imread('Images2020/jeu3.jpg')
 jeu3 = cv2.cvtColor(jeu3, cv2.COLOR_BGR2GRAY)
 
-difference1 = cv2.subtract(jeu2, jeu1)
-difference2 = cv2.subtract(jeu1, jeu2)
+
+difference1 = cv2.subtract(jeu3, jeu1)
+difference2 = cv2.subtract(jeu1, jeu3)
 difference = difference1 + difference2
 ret_binaire, difference = cv2.threshold(difference, 80, 200, cv2.THRESH_BINARY_INV)
 
 cv2.imshow("difference", difference)
-"""
+
+
+resize_width = 500
+resize_height = 500
+resized_dimensions = (resize_width, resize_height)
+
+jeu1 = cv2.resize(jeu1, resized_dimensions, interpolation=cv2.INTER_AREA)
+jeu3 = cv2.resize(jeu3, resized_dimensions, interpolation=cv2.INTER_AREA)
 
 """
 image = cv2.imread('Images2020/cellules.png')

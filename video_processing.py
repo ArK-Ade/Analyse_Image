@@ -22,9 +22,10 @@ def frame_processing(imgc):
 
 
 def frame_processing_q3(imgc, img_prev):
-    imgc = cv2.subtract(imgc, img_prev)
 
-    return imgc
+    img_adaptive_thresholding = cv2.adaptiveThreshold(imgc, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 11, 2)
+
+    return img_adaptive_thresholding
 
 
 # important du fichier video a traiter
